@@ -52,10 +52,18 @@ hr {
     color: #1abc9c !important;
 }
 
+#ds-thread #ds-reset .ds-sort a.ds-current,#ds-thread #ds-reset .ds-sort a:active {
+    color: #1abc9c !important;
+}
+
 #ds-thread #ds-reset .ds-ctx-open {
     color: #1abc9c !important;
 }
 
-#ds-thread #ds-reset .ds-ctx-head {
+#ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
     color: #1abc9c !important;
+}
+
+#ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a:hover{
+    color: #1abcde !important;
 }
