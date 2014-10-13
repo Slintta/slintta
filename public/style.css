@@ -43,3 +43,7 @@ hr {
 #ds-thread #ds-reset .ds-current {
     color: #1abc9c !important;
 }
+
+#ds-thread #ds-reset .ds-highlight {
+    color: #1abc9c !important;
+}
