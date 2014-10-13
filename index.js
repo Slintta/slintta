@@ -42,7 +42,7 @@ app.get(["/", "/posts"], function(req, res) {
 });
 
 app.get("/post/:id", function(req, res) {
-  var id = req.param("id");
+  var id = parseInt(req.param("id"), 36);
   db.get("post:" + id, function(err, post) {
     if (err) {
       res.status(500).send(err.toString());
@@ -79,7 +79,7 @@ app.post("/posts/new", function(req, res) {
       res.status(500).send(err.toString());
       return;
     }
-    res.redirect("/post/" + timestamp);
+    res.redirect("/post/" + timestamp.toString(36));
   });
 });
 
