@@ -35,6 +35,10 @@ hr {
     color: #aaaaaa;
 }
 
+.content img {
+    width: 100%;
+}
+
 #edit-form textarea {
     width: 100%;
     height: 480px;
