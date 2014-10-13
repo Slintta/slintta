@@ -25,8 +25,9 @@ app.get("/ping", function(req, res) {
 app.get(["/", "/posts"], function(req, res) {
   var posts = [];
   db.createReadStream({
-    start : "post:",
-    end   : "post:" + "\xFF",
+    start   : "post:" + "\xFF",
+    end     : "post:",
+    reverse : true,
   })
   .on('data', function (data) {
     var post = data.value;
