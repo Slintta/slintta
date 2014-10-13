@@ -39,3 +39,7 @@ hr {
     width: 100%;
     height: 480px;
 }
+
+#ds-thread #ds-reset .ds-current {
+    color: #1abc9c !important;
+}
