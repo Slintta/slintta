@@ -47,3 +47,15 @@ hr {
 #ds-thread #ds-reset .ds-highlight {
     color: #1abc9c !important;
 }
+
+#ds-thread #ds-reset .ds-comment-context {
+    color: #1abc9c !important;
+}
+
+#ds-thread #ds-reset .ds-ctx-open {
+    color: #1abc9c !important;
+}
+
+#ds-thread #ds-reset .ds-ctx-head {
+    color: #1abc9c !important;
+}
