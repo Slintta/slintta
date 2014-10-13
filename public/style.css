@@ -1,0 +1,36 @@
+hr {
+    border-bottom: 1px solid #cfcfcf;
+}
+
+#container {
+    margin: 0 auto;
+    width: 640px;
+}
+
+#header {
+    padding: 30px;
+}
+
+#footer {
+    padding: 10px 0;
+    color: #666666;
+}
+
+#footer hr {
+    border-bottom: 2px dotted #cfcfcf;
+}
+
+.post {
+    padding: 50px 0;
+}
+
+.post .title {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.post .date {
+    text-align: center;
+    padding: 10px 0;
+    color: #aaaaaa;
+}

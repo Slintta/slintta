@@ -1,0 +1,25 @@
+{
+  "name": "slintta",
+  "version": "1.0.0",
+  "description": "Slintta's home page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xiaochongbeifei/slintta"
+  },
+  "author": "asaka",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaochongbeifei/slintta/issues"
+  },
+  "homepage": "https://github.com/xiaochongbeifei/slintta",
+  "dependencies": {
+    "ejs": "^1.0.0",
+    "express": "^4.9.7",
+    "morgan": "^1.3.2",
+    "nedb": "^0.11.1"
+  }
+}
