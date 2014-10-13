@@ -11,12 +11,34 @@ app.use(morgan('dev'));
 app.use("/static", express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
+var formatPost = function(post) {
+  var date = new Date(post.timestamp);
+  post.date = "" + date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate();
+  post.content = marked(post.content);
+  return post;
+}
+
 app.get("/ping", function(req, res) {
   res.send("pong");
 });
 
 app.get(["/", "/posts"], function(req, res) {
-  res.render("posts.ejs", {});
+  var posts = [];
+  db.createReadStream({
+    start : "post:",
+    end   : "post:" + "\xFF",
+  })
+  .on('data', function (data) {
+    var post = data.value;
+    post = formatPost(post);
+    posts.push(post);
+  })
+  .on('error', function(err) {
+    res.status(500).send(err.toString());
+  })
+  .on('close', function () {
+    res.render("posts.ejs", { posts: posts });
+  });
 });
 
 app.get("/post/:id", function(req, res) {
@@ -24,10 +46,9 @@ app.get("/post/:id", function(req, res) {
   db.get("post:" + id, function(err, post) {
     if (err) {
       res.status(500).send(err.toString());
-      console.log(err);
       return;
     }
-    post.content = marked(post.content);
+    post = formatPost(post);
     res.render("post.ejs", { post: post });
   });
 });
