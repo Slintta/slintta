@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+  <head>
+    <meta charset="utf-8">
+    <title>Slintta - New post</title>
+    <meta name="description" content="Slintta's home page">
+    <meta name="author" content="Slintta & Asaka">
+    <link rel="stylesheet" href="/static/typo.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/forms-nr.css">
+    <link rel="stylesheet" href="/static/buttons.css">
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+      </div>
+
+      <form class="pure-form pure-form-stacked" id="edit-form" action="/posts/new" method="post">
+        <input class="pure-input-1" name="title" id="title" type="text" placeholder="Title" required>
+        <textarea name="content" id="content" required></textarea>
+        <label for="option-two" class="pure-radio">
+          <input id="option-two" type="radio" name="isPublish" value="1" checked>
+          Show
+        </label>
+
+        <label for="option-three" class="pure-radio">
+          <input id="option-three" type="radio" name="isPublish" value="0">
+          Hide
+        </label>
+        <button class="pure-button pure-button-primary" type="submit" value="Submit">Submit</button>
+
+      </form>
+
+      <div id="footer">
+        <hr />
+        <p>❤ made by Slintta &amp; Asaka</p>
+      </div>
+    </div>
+  </body>
+</html>

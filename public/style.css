@@ -34,3 +34,8 @@ hr {
     padding: 10px 0;
     color: #aaaaaa;
 }
+
+#edit-form textarea {
+    width: 100%;
+    height: 480px;
+}
