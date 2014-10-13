@@ -67,3 +67,11 @@ hr {
 #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a:hover{
     color: #1abcde !important;
 }
+
+#ds-reset a {
+    color: #1abc9c !important;
+}
+
+#ds-reset a:hover{
+    color: #1abcde !important;
+}
