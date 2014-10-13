@@ -11,7 +11,7 @@
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
       <script type="text/javascript">
-var duoshuoQuery = {short_name:"lumeizhi"};
+var duoshuoQuery = {short_name:"slintta"};
 (function() {
   var ds = document.createElement('script');
   ds.type = 'text/javascript';ds.async = true;
@@ -37,7 +37,7 @@ var duoshuoQuery = {short_name:"lumeizhi"};
         <div class="content">
           <%- post.content %>
         </div>
-        <div class="ds-thread" data-thread-key="请将此处替换成文章在你的站点中的ID" data-title="请替换成文章的标题" data-url="请替换成文章的网址"></div>
+        <div class="ds-thread" data-thread-key="<%= post.timestamp.toString(36) %>" data-title="<%= post.title %>" data-url="请替换成文章的网址"></div>
       </div>
 
       <div id="footer">
