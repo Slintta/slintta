@@ -2,6 +2,16 @@ html, body {
     height: 100%;
 }
 
+a {
+    color: #1abc9c;
+}
+
+a:hover {
+    color: #009c8c;
+    text-decoration: none;
+    transition-duration: 0.5s;
+}
+
 #main {
     height: 100%;
 }
@@ -42,7 +52,12 @@ html, body {
     width: 300px;
 }
 
-#navbar h1, #navbar h2 {
+#navbar h1 {
+    color: #1abc9c;
+    font-weight: bold;
+}
+
+#navbar h2 {
     color: #1abc9c;
 }
 
