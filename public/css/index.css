@@ -1,0 +1,56 @@
+html, body {
+    height: 100%;
+}
+
+#main {
+    height: 100%;
+}
+
+#upper {
+    height: 38.2%;
+    position: relative;
+    background-color: #1abc9c;
+}
+
+#lower {
+    height: 61.8%;
+    position: relative;
+    background-color: white;
+}
+
+#head {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    height: 102px;
+    bottom: -51px;
+    text-align: center;
+}
+
+#navbar-wrapper {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+    text-align: center;
+    top: 51px;
+}
+
+#navbar {
+    color: #1abc9c;
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+}
+
+#navbar h1, #navbar h2 {
+    color: #1abc9c;
+}
+
+#navbar em {
+    color: #cfcfcf;
+}
+
+#navbar hr {
+    height: 0;
+    margin-bottom: -5px;
+}

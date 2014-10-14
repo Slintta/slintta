@@ -22,7 +22,11 @@ app.get("/ping", function(req, res) {
   res.send("pong");
 });
 
-app.get(["/", "/posts"], function(req, res) {
+app.get("/", function(req, res) {
+  res.render("index.ejs");
+});
+
+app.get("/posts", function(req, res) {
   var posts = [];
   db.createReadStream({
     start   : "post:" + "\xFF",
