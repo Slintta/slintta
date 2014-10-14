@@ -4,10 +4,11 @@ html, body {
 
 a {
     color: #1abc9c;
+    transition-duration: 0.5s;
 }
 
 a:hover {
-    color: #009c8c;
+    color: #008c7c;
     text-decoration: none;
     transition-duration: 0.5s;
 }
