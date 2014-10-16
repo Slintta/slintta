@@ -79,3 +79,35 @@ hr {
 #ds-reset a:hover{
     color: #1abcde !important;
 }
+
+#post-nav {
+    position: fixed;
+    top: 160px;
+    left: 160px;
+}
+
+.post-nav-line {
+    float: left;
+    height: 136px;
+    border-right: #1abc9c solid 1px;
+    width: 16px;
+}
+
+.post-nav-item {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    border: #1abc9c solid 1px;
+    margin-bottom: 25px;
+    background-color: white;
+    z-index: 99999;
+    opacity: 0.9999;
+    transition-duration: 0.2s;
+}
+
+.post-nav-item:hover {
+    background-color: #1abc9c;
+    transition-duration: 0.3s;
+    cursor: pointer;
+}

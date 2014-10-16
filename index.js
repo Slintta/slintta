@@ -2,21 +2,14 @@ var express = require("express");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var level = require("level");
-var marked = require('marked');
 
-var db = level("db", { valueEncoding: 'json' });
+var models = require("./models");
 
 var app = express();
 app.use(morgan('dev'));
 app.use("/static", express.static(__dirname + '/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 
-var formatPost = function(post) {
-  var date = new Date(post.timestamp);
-  post.date = "" + date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate();
-  post.content = marked(post.content);
-  return post;
-}
 
 app.get("/ping", function(req, res) {
   res.send("pong");
@@ -27,34 +20,30 @@ app.get("/", function(req, res) {
 });
 
 app.get("/posts", function(req, res) {
-  var posts = [];
-  db.createReadStream({
-    start   : "post:" + "\xFF",
-    end     : "post:",
-    reverse : true,
-  })
-  .on('data', function (data) {
-    var post = data.value;
-    post = formatPost(post);
-    posts.push(post);
-  })
-  .on('error', function(err) {
-    res.status(500).send(err.toString());
-  })
-  .on('close', function () {
+  models.getAllPost(function(err, res) {
+    if (err) {
+      res.status(500).send(err.toString());
+      return;
+    }
     res.render("posts.ejs", { posts: posts });
   });
 });
 
 app.get("/post/:id", function(req, res) {
   var id = parseInt(req.param("id"), 36);
-  db.get("post:" + id, function(err, post) {
+  models.db.get("post:" + id, function(err, post) {
     if (err) {
       res.status(500).send(err.toString());
       return;
     }
-    post = formatPost(post);
-    res.render("post.ejs", { post: post });
+    
+    models.getAllPost(function(err, posts) {
+      if (err) {
+        res.status(500).send(err.toString());
+      }
+      post = models.formatPost(post);
+      res.render("post.ejs", { post: post, posts: posts });
+    });
   });
 });
 
@@ -79,7 +68,7 @@ app.post("/posts/new", function(req, res) {
     content: content,
     timestamp: timestamp,
   }
-  db.put("post:" + timestamp, post, function(err) {
+  models.db.put("post:" + timestamp, post, function(err) {
     if (err) {
       res.status(500).send(err.toString());
       return;
