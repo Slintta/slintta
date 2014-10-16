@@ -106,7 +106,7 @@ hr {
     transition-duration: 0.2s;
 }
 
-.post-nav-item:hover {
+.post-nav-item:hover, .post-nav-item-current {
     background-color: #1abc9c;
     transition-duration: 0.3s;
     cursor: pointer;

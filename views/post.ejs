@@ -26,10 +26,11 @@ var duoshuoQuery = {short_name:"slintta"};
   </head>
   <body>
     <div id="post-nav">
-      <div class="post-nav-line" style="height: <%= (32 + 25) * posts.length - 25 %>px;">
+      <div class="post-nav-line" style="height: <%= (32 + 25) * (posts.length + 1) - 25 %>px;">
       </div>
-      <% posts.forEach(function(post, index) { %>
-        <a class="post-nav-item" href="/post/<%= post.timestamp.toString(36) %>" title="<%= post.title %>"></a>
+      <a class="post-nav-item" href="/posts" title="返回首页"></a>
+      <% posts.forEach(function(p, index) { %>
+        <a class="post-nav-item <% if (p.timestamp === post.timestamp) { %>post-nav-item-current<% } %>" href="/post/<%= p.timestamp.toString(36) %>" title="<%= p.title %>"></a>
       <% }) %>
     </div>
 
