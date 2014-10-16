@@ -10,18 +10,21 @@
     <link rel="stylesheet" href="/static/typo.css">
     <link rel="stylesheet" href="/static/style.css">
     <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://libs.baidu.com/underscore/1.3.3/underscore-min.js"></script>
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
     <div id="post-nav">
-      <div class="post-nav-line" style="height: <%= (32 + 25) * (posts.length + 1) - 25 %>px;">
+      <div id="post-nav-slide" class="post-nav-item post-nav-slide" style="margin-top: 0;" data-index="current"></div>
+      <div class="post-nav-line" style="height: <%= (32 + 25) * (posts.length + 1) - 25 %>px;"></div>
+      <div class="post-nav-wrapper" style="margin-top: <%= - ((32 + 25) * (posts.length + 1) - 25) %>px;">
+        <a class="post-nav-item" data-index="0" href="/posts" title="首页"></a>
+        <% posts.forEach(function(post, index) { %>
+          <a class="post-nav-item" data-index="<%= index + 1 %>" rel="#post-<%= post.timestamp.toString(36) %>" title="<%= post.title %>"></a>
+        <% }) %>
       </div>
-      <a class="post-nav-item post-nav-item-current" rel="/posts" title="首页"></a>
-      <% posts.forEach(function(post, index) { %>
-        <a class="post-nav-item" rel="#post-<%= post.timestamp.toString(36) %>" title="<%= post.title %>"></a>
-      <% }) %>
     </div>
 
     <div id="container">
@@ -59,7 +62,17 @@ $(function(){
     var rel=$(this).attr("rel");
     var pos=$(rel).offset().top;
     $("html,body").animate({scrollTop:pos}, 400);
-  })
+  });
+  $(".post-nav-item").hover(_.throttle(function(e) {
+    var target = $(e.target);
+    var index = $(e.target).data("index");
+    if (index === "current") {
+      return;
+    }
+    $("#post-nav-slide").animate({"margin-top": index * 57 + "px"}, 400);
+  }, 200), _.throttle(function(e) {
+    $("#post-nav-slide").animate({"margin-top": 0}, 400);
+  }, 200));
 })
   </script>
 </html>

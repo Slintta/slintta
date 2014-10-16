@@ -87,10 +87,12 @@ hr {
 }
 
 .post-nav-line {
-    float: left;
     height: 136px;
     border-right: #1abc9c solid 1px;
     width: 16px;
+}
+
+.post-nav-item-wrapper {
 }
 
 .post-nav-item {
@@ -102,12 +104,17 @@ hr {
     margin-bottom: 25px;
     background-color: white;
     z-index: 99999;
-    opacity: 0.9999;
-    transition-duration: 0.2s;
+    /* transition-duration: 0.2s; */
+}
+
+.post-nav-slide {
+    float: left;
+    background-color: #1abc9c !important;
+    z-index: 9999999 !important;
 }
 
 .post-nav-item:hover, .post-nav-item-current {
-    background-color: #1abc9c;
-    transition-duration: 0.3s;
+    /* background-color: #1abc9c; */
+    /* transition-duration: 0.3s; */
     cursor: pointer;
 }
