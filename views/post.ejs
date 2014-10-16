@@ -29,7 +29,7 @@ var duoshuoQuery = {short_name:"slintta"};
       <div class="post-nav-line" style="height: <%= (32 + 25) * posts.length - 25 %>px;">
       </div>
       <% posts.forEach(function(post, index) { %>
-        <a class="post-nav-item" href="/post/<%= post.timestamp.toString(36) %>"></a>
+        <a class="post-nav-item" href="/post/<%= post.timestamp.toString(36) %>" title="<%= post.title %>"></a>
       <% }) %>
     </div>
 

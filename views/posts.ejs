@@ -19,7 +19,7 @@
       <div class="post-nav-line" style="height: <%= (32 + 25) * posts.length - 25 %>px;">
       </div>
       <% posts.forEach(function(post, index) { %>
-        <a class="post-nav-item" rel="#post-<%= post.timestamp.toString(36) %>"></a>
+        <a class="post-nav-item" rel="#post-<%= post.timestamp.toString(36) %>" title="<%= post.title %>"></a>
       <% }) %>
     </div>
 
