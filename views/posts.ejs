@@ -16,8 +16,9 @@
   </head>
   <body>
     <div id="post-nav">
-      <div class="post-nav-line" style="height: <%= (32 + 25) * posts.length - 25 %>px;">
+      <div class="post-nav-line" style="height: <%= (32 + 25) * (posts.length + 1) - 25 %>px;">
       </div>
+      <a class="post-nav-item-current" rel="/posts" title="首页"></a>
       <% posts.forEach(function(post, index) { %>
         <a class="post-nav-item" rel="#post-<%= post.timestamp.toString(36) %>" title="<%= post.title %>"></a>
       <% }) %>
