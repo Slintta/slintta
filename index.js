@@ -20,7 +20,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/posts", function(req, res) {
-  models.getAllPost(function(err, res) {
+  models.getAllPost(function(err, posts) {
     if (err) {
       res.status(500).send(err.toString());
       return;
