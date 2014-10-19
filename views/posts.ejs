@@ -63,16 +63,6 @@ $(function(){
     var pos=$(rel).offset().top;
     $("html,body").animate({scrollTop:pos}, 400);
   });
-  $(".post-nav-item").hover(_.throttle(function(e) {
-    var target = $(e.target);
-    var index = $(e.target).data("index");
-    if (index === "current") {
-      return;
-    }
-    $("#post-nav-slide").animate({"margin-top": index * 57 + "px"}, 400);
-  }, 200), _.throttle(function(e) {
-    $("#post-nav-slide").animate({"margin-top": 0}, 400);
-  }, 200));
-})
+});
   </script>
 </html>

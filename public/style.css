@@ -104,7 +104,7 @@ hr {
     margin-bottom: 25px;
     background-color: white;
     z-index: 99999;
-    /* transition-duration: 0.2s; */
+    transition-duration: 0.2s;
 }
 
 .post-nav-slide {
@@ -114,7 +114,7 @@ hr {
 }
 
 .post-nav-item:hover, .post-nav-item-current {
-    /* background-color: #1abc9c; */
-    /* transition-duration: 0.3s; */
+    background-color: #1abc9c;
+    transition-duration: 0.3s;
     cursor: pointer;
 }
