@@ -8,7 +8,16 @@ hr {
 }
 
 #header {
-    padding: 30px;
+    background-color: #1abc9c;
+    height: 200px;
+    text-align: center;
+}
+
+#header img {
+    margin-top: 50px;
+    border-radius: 100px;
+    height: 100px;
+    width: 100px;
 }
 
 #footer {
@@ -82,7 +91,7 @@ hr {
 
 #post-nav {
     position: fixed;
-    top: 160px;
+    top: 250px;
     left: 60px;
 }
 
