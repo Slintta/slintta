@@ -26,17 +26,19 @@ var duoshuoQuery = {short_name:"slintta"};
   </head>
   <body>
     <div id="header">
-      <a href="/">
-        <div id="header-wrapper">
-          <img src="/static/image/head.png" />
-        </div>
-      </a>
+      <div id="header-wrapper">
+        <a href="/">
+          <img class="head-img" src="/static/image/head.png" />
+        </a>
+      </div>
     </div>
 
     <div id="post-nav">
       <div class="post-nav-line" style="height: <%= (32 + 25) * (posts.length + 1) - 25 %>px;"></div>
       <div class="post-nav-wrapper" style="margin-top: <%= - ((32 + 25) * (posts.length + 1) - 25) %>px;">
-        <a class="post-nav-item" data-index="0" href="/posts" title="首页"></a>
+        <a class="post-nav-item" data-index="0" href="/posts" title="首页">
+          <div class="post-nav-item-inner"></div>
+        </a>
         <% posts.forEach(function(p, index) { %>
           <a class="post-nav-item <% if (p.timestamp === post.timestamp) { %>post-nav-item-current<% } %>" href="/post/<%= p.timestamp.toString(36) %>" title="<%= p.title %>"></a>
         <% }) %>
