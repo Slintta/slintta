@@ -9,15 +9,24 @@ hr {
 
 #header {
     background-color: #1abc9c;
-    height: 200px;
-    text-align: center;
+    height: 155px;
+    padding-top: 45px;
 }
 
 #header img {
-    margin-top: 50px;
+    margin-top: 5px;
     border-radius: 100px;
     height: 100px;
     width: 100px;
+}
+
+#header-wrapper {
+    height: 110px;
+    width: 110px;
+    margin: 0 auto;
+    border-radius: 110px;
+    background-color: white;
+    text-align: center;
 }
 
 #footer {
