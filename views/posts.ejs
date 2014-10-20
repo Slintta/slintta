@@ -78,6 +78,19 @@ $(function(){
       $("#post-nav").css({top: (250 - top)});
     }
   });
+  $(".head-img").hover(function() {
+    var img = $(this);
+    img.animate({opacity: 0}, 200, function() {  
+      img.attr("src", "/static/image/home.png");
+    });
+    img.animate({opacity: 1}, 200);
+  }, function() {
+    var img = $(this);
+    img.animate({opacity: 0}, 200, function() {  
+      img.attr("src", "/static/image/head.png");
+    });
+    img.animate({opacity: 1}, 200);
+  });
 });
   </script>
 </html>
