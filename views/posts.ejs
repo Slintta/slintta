@@ -70,6 +70,14 @@ $(function(){
     var pos=$(rel).offset().top;
     $("html,body").animate({scrollTop:pos}, 400);
   });
+  $(window).scroll(function(e) {
+    var top = $(document).scrollTop();
+    if (top > 100 ) {
+      $("#post-nav").css({top: 150});
+    } else {
+      $("#post-nav").css({top: (250 - top)});
+    }
+  });
 });
   </script>
 </html>

@@ -9,6 +9,7 @@
     <link rel="apple-touch-icon" href="/static/image/head.png">
     <link rel="stylesheet" href="/static/typo.css">
     <link rel="stylesheet" href="/static/style.css">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
       <![endif]-->
@@ -66,4 +67,14 @@ var duoshuoQuery = {short_name:"slintta"};
       </div>
     </div>
   </body>
+  <script>
+$(window).scroll(function(e) {
+  var top = $(document).scrollTop();
+  if (top > 100 ) {
+    $("#post-nav").css({top: 150});
+  } else {
+    $("#post-nav").css({top: (250 - top)});
+  }
+});
+  </script>
 </html>
