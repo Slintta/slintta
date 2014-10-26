@@ -2,8 +2,15 @@ var express = require("express");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var level = require("level");
+var weibo = require('weibo');
 
 var models = require("./models");
+
+var sina_config = {
+  appkey = 'xx';
+  secret = 'xx';
+  callback_url = 'xx';
+};
 
 var app = express();
 app.use(morgan('dev'));
