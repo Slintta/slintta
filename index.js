@@ -7,9 +7,9 @@ var weibo = require('weibo');
 var models = require("./models");
 
 var sina_config = {
-  appkey = 'xx';
-  secret = 'xx';
-  callback_url = 'xx';
+  appkey: 'xx',
+  secret: 'xx',
+  callbackUrl: 'xx',
 };
 
 var app = express();
