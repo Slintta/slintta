@@ -2,21 +2,41 @@ var express = require("express");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var level = require("level");
+var session = require('express-session')
 var weibo = require('weibo');
 
 var models = require("./models");
 
-var sina_config = {
-  appkey: 'xx',
-  secret: 'xx',
-  callbackUrl: 'xx',
+var sinaConfig = {
+  appkey: '895398235',
+  secret: '226f7a63ce6ced164db6b74979ee5345',
+  callbackUrl: 'http://slintta.com/callback',
 };
+
+weibo.init('weibo', sinaConfig.appkey, sinaConfig.secret, sinaConfig.callbackUrl);
 
 var app = express();
 app.use(morgan('dev'));
 app.use("/static", express.static(__dirname + '/public'));
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(session({
+  secret: 'you know nothing',
+  resave: true,
+  saveUninitialized: true,
+}));
+app.use(bodyParser.urlencoded({
+  extended: false,
+}));
+app.use(weibo.oauth({
+  loginPath: '/login',
+  logoutPath: '/logout',
+  afterLogin: function(req, res, next) {
+    console.log(req.session.oauthUser);
+    next();
+  },
+  beforeLogout: function(req, res, next) {
+    next();
+  },
+}));
 
 app.get("/ping", function(req, res) {
   res.send("pong");
@@ -32,7 +52,10 @@ app.get("/posts", function(req, res) {
       res.status(500).send(err.toString());
       return;
     }
-    res.render("posts.ejs", { posts: posts });
+    res.render("posts.ejs", {
+      posts: posts,
+      user: req.session.oauthUser,
+    });
   });
 });
 
@@ -49,7 +72,10 @@ app.get("/post/:id", function(req, res) {
         res.status(500).send(err.toString());
       }
       post = models.formatPost(post);
-      res.render("post.ejs", { post: post, posts: posts });
+      res.render("post.ejs", {
+        post: post, posts: posts,
+        user: req.session.oauthUser,
+      });
     });
   });
 });
@@ -84,6 +110,6 @@ app.post("/posts/new", function(req, res) {
   });
 });
 
-var server = app.listen(3001, function() {
+var server = app.listen(80, function() {
   console.log('Listening on port %d', server.address().port);
 });
