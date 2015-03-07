@@ -13,6 +13,9 @@ var getAllPost = function(fn) {
   .on('data', function (data) {
     var post = data.value;
     post = formatPost(post);
+    if (post.deteleted) {
+      return;
+    }
     posts.push(post);
   })
   .on('error', function(err) {
@@ -21,6 +24,9 @@ var getAllPost = function(fn) {
   .on('close', function () {
     fn(undefined, posts);
   });
+};
+
+var deletePost = function(postId, fn) {
 
 };
 
