@@ -30,7 +30,14 @@ var duoshuoQuery = {short_name:"slintta"};
     <img src="/static/image/head.png" style="display: none" />
     <div id="header">
       <div id="header-action">
-        <a href="javascript:;">微博登录</a>
+        <% if (!user) { %>
+          <a href="/login?type=weibo">微博登录</a>
+        <% } else { %>
+          <small><a target="_blank" href="<%= user.t_url %>"><%= user.name %></a></small>
+          <% if (user.id === '1186373612' || '1221830464') { %>
+            <small><a href="/posts/new">发布文章</a></small>
+          <% } %>
+        <% } %>
       </div>
       <div id="header-wrapper">
         <a href="/">
