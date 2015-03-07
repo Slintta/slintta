@@ -5,6 +5,7 @@ html, body {
 a {
     color: #1abc9c;
     transition-duration: 0.5s;
+    moz-transition-duration: 0.5s;
 }
 
 a:hover {
@@ -12,6 +13,7 @@ a:hover {
     text-decoration: none;
     font-weight: bold;
     transition-duration: 0.5s;
+    moz-transition-duration: 0.5s;
 }
 
 #main {
