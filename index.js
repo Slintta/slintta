@@ -6,6 +6,7 @@ var session = require('express-session');
 var weibo = require('weibo');
 
 var models = require("./models");
+var config = require('./config');
 
 var sinaConfig = {
   appkey: '895398235',
@@ -81,18 +82,22 @@ app.get("/post/:id", function(req, res) {
 });
 
 app.get("/post/:id/edit", function(req, res) {
+  var id = parseint(req.param("id"), 36);
+});
+
+app.post('/post/:id/delete', function(req, res) {
   var id = parseInt(req.param("id"), 36);
-  models.deletePost(id, function(err) {
+  var user = req.session.oauthUser;
+  if (!user || config.ADMINS.indexOf(user.id) < 0) {
+    return res.status(401).send('unauthorized');
+  }
+  models.deletepost(id, function(err) {
     if (err) {
-      res.status(500).send(err.toString());
+      res.status(500).send(err.tostring());
       return;
     }
     res.send('ok');
   });
-});
-
-app.post('/post/:id', function(req, res) {
-  models.deletePost();
 });
 
 app.get("/posts/new", function(req, res) {
@@ -125,6 +130,6 @@ app.post("/posts/new", function(req, res) {
   });
 });
 
-var server = app.listen(3001, function() {
+var server = app.listen(80, function() {
   console.log('Listening on port %d', server.address().port);
 });
