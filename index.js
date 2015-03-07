@@ -81,7 +81,18 @@ app.get("/post/:id", function(req, res) {
 });
 
 app.get("/post/:id/edit", function(req, res) {
+  var id = parseInt(req.param("id"), 36);
+  models.deletePost(id, function(err) {
+    if (err) {
+      res.status(500).send(err.toString());
+      return;
+    }
+    res.send('ok');
+  });
+});
 
+app.post('/post/:id', function(req, res) {
+  models.deletePost();
 });
 
 app.get("/posts/new", function(req, res) {
@@ -103,6 +114,7 @@ app.post("/posts/new", function(req, res) {
     title: title,
     content: content,
     timestamp: timestamp,
+    deleted: false,
   };
   models.db.put("post:" + timestamp, post, function(err) {
     if (err) {

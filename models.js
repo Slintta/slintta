@@ -27,7 +27,18 @@ var getAllPost = function(fn) {
 };
 
 var deletePost = function(postId, fn) {
-
+  var key = 'post:' + postId;
+  db.get(key, function(err, post) {
+    if (err) {
+      return fn(err);
+    }
+    if (post.deleted) {
+      return fn();
+    }
+    db.put(key, post, function(err) {
+      return fn(err);
+    });
+  });
 };
 
 var formatPost = function(post) {
