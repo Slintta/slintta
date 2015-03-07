@@ -2,7 +2,7 @@ var express = require("express");
 var morgan = require("morgan");
 var bodyParser = require("body-parser");
 var level = require("level");
-var session = require('express-session')
+var session = require('express-session');
 var weibo = require('weibo');
 
 var models = require("./models");
@@ -85,7 +85,10 @@ app.get("/post/:id/edit", function(req, res) {
 });
 
 app.get("/posts/new", function(req, res) {
-  res.render("post_edit.ejs", { post: undefined });
+  res.render("post_edit.ejs", {
+    post: undefined,
+    user:req.session.oauthUser,
+  });
 });
 
 app.post("/posts/new", function(req, res) {
@@ -100,7 +103,7 @@ app.post("/posts/new", function(req, res) {
     title: title,
     content: content,
     timestamp: timestamp,
-  }
+  };
   models.db.put("post:" + timestamp, post, function(err) {
     if (err) {
       res.status(500).send(err.toString());
