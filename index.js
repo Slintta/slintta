@@ -31,7 +31,6 @@ app.use(weibo.oauth({
   loginPath: '/login',
   logoutPath: '/logout',
   afterLogin: function(req, res, next) {
-    console.log(req.session.oauthUser);
     next();
   },
   beforeLogout: function(req, res, next) {
