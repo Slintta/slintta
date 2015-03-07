@@ -47,27 +47,27 @@ a:hover {
     top: 51px;
 }
 
-#navbar {
-    color: #1abc9c;
-    text-align: center;
-    margin: 0 auto;
-    width: 340px;
-}
-
-#navbar h1 {
+#navbar-wrapper h1 {
     color: #1abc9c;
     font-weight: bold;
 }
 
-#navbar h2 {
+#navbar-wrapper h2 {
     color: #1abc9c;
 }
 
-#navbar em {
+#navbar-wrapper em {
     color: #cfcfcf;
 }
 
 #navbar hr {
     height: 0;
     margin-bottom: -5px;
+}
+
+#navbar {
+    color: #1abc9c;
+    text-align: center;
+    margin: 0 auto;
+    width: 320px;
 }
