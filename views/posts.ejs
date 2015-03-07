@@ -24,6 +24,7 @@
           <a href="/login?type=weibo">微博登录</a>
         <% } else { %>
           <small><a target="_blank" href="<%= user.t_url %>"><%= user.name %></a></small>
+          |
           <% if (user.id === '1186373612' || user.id === '1221830464') { %>
             <small><a href="/posts/new">发布文章</a></small>
           <% } %>
