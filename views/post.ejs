@@ -70,6 +70,9 @@ var duoshuoQuery = {short_name:"slintta"};
         <div class="content">
           <%- post.content %>
         </div>
+        <div class="admin">
+          <a id="delete-post" data-id="<%= post.timestamp.toString(36) %>" href="javascript:;">删除</a>
+        </div>
       </div>
       <div class="ds-thread" data-thread-key="<%= post.timestamp.toString(36) %>" data-title="<%= post.title %>" data-url="请替换成文章的网址"></div>
 
@@ -101,6 +104,16 @@ $(function() {
       img.attr("src", "/static/image/head2.png");
     });
     img.animate({opacity: 1}, 200);
+  });
+
+  $('#delete-post').click(function(f, e) {
+    var postId = $('#delete-post').data('id');
+    if (!window.confirm('确定删除？')) {
+      return;
+    }
+    $.post('/post/' + postId + '/delete', function() {
+      window.location = '/';
+    })
   });
 });
   </script>

@@ -13,7 +13,6 @@ var getAllPost = function(fn) {
   .on('data', function (data) {
     var post = data.value;
     post = formatPost(post);
-    console.log(post.deleted);
     if (post.deleted) {
       return;
     }
