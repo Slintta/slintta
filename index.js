@@ -67,6 +67,11 @@ app.get("/post/:id", function(req, res) {
       res.status(500).send(err.toString());
       return;
     }
+
+    if (post.deleted) {
+      res.status(404).send('not found');
+      return;
+    }
     
     models.getAllPost(function(err, posts) {
       if (err) {

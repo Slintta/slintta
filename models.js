@@ -13,7 +13,8 @@ var getAllPost = function(fn) {
   .on('data', function (data) {
     var post = data.value;
     post = formatPost(post);
-    if (post.deteleted) {
+    console.log(post.deleted);
+    if (post.deleted) {
       return;
     }
     posts.push(post);
@@ -35,6 +36,7 @@ var deletePost = function(postId, fn) {
     if (post.deleted) {
       return fn();
     }
+    post.deleted = true;
     db.put(key, post, function(err) {
       return fn(err);
     });
@@ -51,3 +53,4 @@ var formatPost = function(post) {
 exports.db = db;
 exports.getAllPost = getAllPost;
 exports.formatPost = formatPost;
+exports.deletePost = deletePost;
