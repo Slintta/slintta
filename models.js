@@ -22,14 +22,14 @@ var getAllPost = function(fn) {
     fn(undefined, posts);
   });
 
-}
+};
 
 var formatPost = function(post) {
   var date = new Date(post.timestamp);
   post.date = "" + date.getFullYear() + "." + (date.getMonth() + 1) + "." + date.getDate();
   post.content = marked(post.content);
   return post;
-}
+};
 
 exports.db = db;
 exports.getAllPost = getAllPost;
