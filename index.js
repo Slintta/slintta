@@ -91,7 +91,7 @@ app.post('/post/:id/delete', function(req, res) {
   if (!user || config.ADMINS.indexOf(user.id) < 0) {
     return res.status(401).send('unauthorized');
   }
-  models.deletepost(id, function(err) {
+  models.deletePost(id, function(err) {
     if (err) {
       res.status(500).send(err.tostring());
       return;
