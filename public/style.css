@@ -97,6 +97,10 @@ hr {
     margin-bottom: 0.5em;
 }
 
+.content img {
+    display: block;
+}
+
 #edit-form textarea {
     width: 100%;
     height: 480px;
