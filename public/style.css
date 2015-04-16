@@ -68,39 +68,6 @@ hr {
     width: 100%;
 }
 
-.content p {
-    text-indent: 2em;
-    margin-bottom: 0.5em;
-}
-
-.content h1 {
-    margin-bottom: 0.5em;
-}
-
-.content h2 {
-    margin-bottom: 0.5em;
-}
-
-.content h3 {
-    margin-bottom: 0.5em;
-}
-
-.content h4 {
-    margin-bottom: 0.5em;
-}
-
-.content h5 {
-    margin-bottom: 0.5em;
-}
-
-.content h6 {
-    margin-bottom: 0.5em;
-}
-
-.content img {
-    display: block;
-}
-
 #edit-form textarea {
     width: 100%;
     height: 480px;
